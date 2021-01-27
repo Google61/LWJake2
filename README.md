@@ -1,3 +1,5 @@
+![Java CI](https://github.com/Google61/LWJake2/workflows/Java%20CI/badge.svg)
+
 LWJake2 README
 LWJake2 Website: https://github.com/flibitijibibo/LWJake2
 =========================================================
