@@ -24,6 +24,6 @@ jobs:
       run: ant -noinput -buildfile build.xml
     - name: Upload artifact
       uses: actions/upload-artifact@v2
-        with:
-          name: lwjake2
-          path: built/jar/lwjake2.jar
+      with:
+        name: lwjake2
+        path: built/jar/lwjake2.jar
