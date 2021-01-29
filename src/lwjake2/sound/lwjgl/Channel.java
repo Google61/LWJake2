@@ -36,6 +36,7 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.lwjgl.openal;
 import org.lwjgl.openal.AL10;
 import org.lwjgl.openal.AL11;
 import org.lwjgl.openal.EFX10;
