@@ -12,13 +12,6 @@
 		<pathelement location="lib/flibitEFX.jar"/>
 	</path>
 
-	<!-- FindBugs task definition -->
-	<taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask">
-		<classpath>
-			<pathelement location="findbugs/findbugs-2.0.0/lib/findbugs.jar"/>
-		</classpath>
-	</taskdef>
-
 	<!-- Compile LWJake2 -->
 	<target name="compile" depends="clean">
 		<!-- Compile the source code with javac -->
