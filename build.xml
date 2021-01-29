@@ -30,15 +30,6 @@
 			</manifest>
 			<fileset dir="built/javac/"/>
 		</jar>
-
-		<!-- Run FindBugs on the current source -->
-		<findbugs
-			home="findbugs/findbugs-2.0.0/lib/"
-			output="html"
-			outputFile="built/bugs.html"
-			projectFile="findbugs/LWJake2.fbp"
-			excludeFilter="findbugs/LWJake2.fbf"
-		/>
 	</target>
 
 	<!-- Build GNU/Linux version of LWJake2 -->
