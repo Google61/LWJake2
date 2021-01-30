@@ -144,10 +144,10 @@ public final class LWJGLSoundImpl implements Sound {
 		// Com.Printf(os + " using " + ((deviceName == null) ? defaultSpecifier : deviceName) + '\n');
 
 		// Check for an error.
-		if (ALC10.alcGetError(AL.getDevice()) != ALC10.ALC_NO_ERROR) 
-		{
-			Com.DPrintf("Error with SoundDevice");
-		}
+		//if (ALC10.alcGetError(AL.getDevice()) != ALC10.ALC_NO_ERROR) 
+		//{
+		//	Com.DPrintf("Error with SoundDevice");
+		//}
 	}
 	
 	/** Initializes OpenAL EFX effects. */
