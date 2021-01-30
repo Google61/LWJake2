@@ -38,12 +38,6 @@
 		</jar>
 	</target>
 
-	<!-- Build GNU/Linux version of LWJake2 -->
-	<target name="linux" depends="compile">
-		<!-- Copy LWJake2 jar -->
-		<copy file="built/jar/lwjake2.jar" todir="built/Linux"/>
-	</target>
-
 	<!-- Build the server version of LWJake2 -->
 	<target name="server" depends="compile">
 		<!--Copy LWJake2 jar -->
@@ -79,7 +73,7 @@
 		</zip>
 	</target>
 
-	<target name="all" depends="linux,osx,windows,server,srcdist">
+	<target name="all" depends="compile,server,srcdist">
 	</target>
 
 </project>
