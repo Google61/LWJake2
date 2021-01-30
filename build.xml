@@ -8,7 +8,13 @@
 	<!-- Classpath list for javac compiling -->
 	<path id="libPath">
 		<pathelement location="lib/lwjgl.jar"/>
-		<pathelement location="lib/lwjgl_util.jar"/>
+		<pathelement location="lib/lwjgl-glfw-classes.jar"/>
+		<pathelement location="lib/lwjgl-openal.jar"/>
+		<pathelement location="lib/lwjgl-opengl.jar"/>
+		<pathelement location="lib/lwjgl-jemalloc.jar"/>
+		<pathelement location="lib/lwjgl-stb.jar"/>
+		<pathelement location="lib/lwjgl-tinyfd.jar"/>
+		<pathelement location="lib/jsr305.jar"/>
 		<pathelement location="lib/flibitEFX.jar"/>
 	</path>
 
@@ -16,7 +22,7 @@
 	<target name="compile" depends="clean">
 		<!-- Compile the source code with javac -->
 		<mkdir dir="built/javac"/>
-		<javac destdir="built/javac" debug="on" source="1.5" target="1.5" includeantruntime="false">
+		<javac destdir="built/javac" debug="on" source="1.5" target="1.8" includeantruntime="false">
 			<src path="src"/>
 			<classpath refid="libPath"/>
 		</javac>
@@ -26,7 +32,7 @@
 		<jar destfile="built/jar/lwjake2.jar">
 			<manifest>
 				<attribute name="Main-Class" value="lwjake2.LWJake2"/>
-				<attribute name="Class-Path" value=". lwjgl.jar lwjgl_util.jar flibitEFX.jar"/>
+				<attribute name="Class-Path" value=". lwjgl.jar lwjgl-opengl.jar lwjgl-opengl.jar lwjgl-jemalloc.jar lwjgl-stb.jar lwjgl-tinyfd.jar jsr305.jar flibitEFX.jar"/>
 			</manifest>
 			<fileset dir="built/javac/"/>
 		</jar>
@@ -37,133 +43,11 @@
 		<!-- Copy LWJake2 jar -->
 		<copy file="built/jar/lwjake2.jar" todir="built/Linux"/>
 
-		<!-- Copy libs -->
-		<copy todir="built/Linux">
-			<fileset dir="lib">
-				<include name="lwjgl.jar"/>
-				<include name="lwjgl_util.jar"/>
-				<include name="flibitEFX.jar"/>
-			</fileset>
-		</copy>
-
-		<!-- Copy licenses folder and README files -->
-		<copy todir="built/Linux/licenses">
-			<fileset dir="licenses"/>
-		</copy>
-		<copy file="README.md" todir="built/Linux"/>
-		<copy file="readme.id" todir="built/Linux"/>
-
-		<!-- Copy GNU/Linux executable file -->
-		<copy file="executables/LWJake2.sh" todir="built/Linux"/>
-
-		<!-- Copy GNU/Linux native libraries -->
-		<copy file="lib/lwjgl_native/liblwjgl.so" todir="built/Linux"/>
-		<copy file="lib/lwjgl_native/liblwjgl64.so" todir="built/Linux"/>
-		<copy file="lib/lwjgl_native/libopenal.so" todir="built/Linux"/>
-		<copy file="lib/lwjgl_native/libopenal64.so" todir="built/Linux"/>
-		
-		<!-- Create the zip distribution -->
-		<mkdir dir="built/zip"/>
-		<zip destfile="built/zip/LWJake2-Linux.zip">
-			<zipfileset dir="built/Linux" prefix="LWJake2"/>
-		</zip>
-	</target>
-
-	<!-- Build OSX version of LWJake2 -->
-	<target name="osx" depends="compile">
-		<!-- Copy LWJake2 jar -->
-		<copy file="built/jar/lwjake2.jar" todir="built/OSX"/>
-
-		<!-- Copy libs -->
-		<copy todir="built/OSX">
-			<fileset dir="lib">
-				<include name="lwjgl.jar"/>
-				<include name="lwjgl_util.jar"/>
-				<include name="flibitEFX.jar"/>
-			</fileset>
-		</copy>
-
-		<!-- Copy licenses folder and README files -->
-		<copy todir="built/OSX/licenses">
-			<fileset dir="licenses"/>
-		</copy>
-		<copy file="README.md" todir="built/OSX"/>
-		<copy file="readme.id" todir="built/OSX"/>
-
-		<!-- Copy OSX executable file -->
-		<copy file="executables/LWJake2.sh" todir="built/OSX"/>
-
-		<!-- Copy OSX native libraries -->
-		<copy file="lib/lwjgl_native/liblwjgl.jnilib" todir="built/OSX"/>
-		<copy file="lib/lwjgl_native/openal.dylib" todir="built/OSX"/>
-		
-		<!-- Create the zip distribution -->
-		<mkdir dir="built/zip"/>
-		<zip destfile="built/zip/LWJake2-OSX.zip">
-			<zipfileset dir="built/OSX" prefix="LWJake2"/>
-		</zip>
-	</target>
-
-	<!-- Build Windows version of LWJake2 -->
-	<target name="windows" depends="compile">
-		<!-- Copy LWJake2 jar -->
-		<copy file="built/jar/lwjake2.jar" todir="built/Windows"/>
-
-		<!-- Copy libs -->
-		<copy todir="built/Windows">
-			<fileset dir="lib">
-				<include name="lwjgl.jar"/>
-				<include name="lwjgl_util.jar"/>
-				<include name="flibitEFX.jar"/>
-			</fileset>
-		</copy>
-
-		<!-- Copy licenses folder and README files -->
-		<copy todir="built/Windows/licenses">
-			<fileset dir="licenses"/>
-		</copy>
-		<copy file="README.md" todir="built/Windows"/>
-		<copy file="readme.id" todir="built/Windows"/>
-
-		<!-- Copy Windows executable file -->
-		<copy file="executables/LWJake2.bat" todir="built/Windows"/>
-
-		<!-- Copy Windows native libraries -->
-		<copy file="lib/lwjgl_native/lwjgl.dll" todir="built/Windows"/>
-		<copy file="lib/lwjgl_native/lwjgl64.dll" todir="built/Windows"/>
-		<copy file="lib/lwjgl_native/OpenAL32.dll" todir="built/Windows"/>
-		<copy file="lib/lwjgl_native/OpenAL64.dll" todir="built/Windows"/>
-		
-		<!-- Create the zip distribution -->
-		<mkdir dir="built/zip"/>
-		<zip destfile="built/zip/LWJake2-Windows.zip">
-			<zipfileset dir="built/Windows" prefix="LWJake2"/>
-		</zip>
-	</target>
-	
 	<!-- Build the server version of LWJake2 -->
 	<target name="server" depends="compile">
 		<!--Copy LWJake2 jar -->
 		<copy file="built/jar/lwjake2.jar" todir="built/Server"/>
 		
-		<!-- Copy licenses folder and README files -->
-		<copy todir="built/Server/licenses">
-			<fileset dir="licenses"/>
-		</copy>
-		<copy file="README.md" todir="built/Server"/>
-		<copy file="readme.id" todir="built/Server"/>
-		
-		<!-- Copy executable files -->
-		<copy file="executables/LWJake2_Server.sh" todir="built/Server"/>
-		<copy file="executables/LWJake2_Server.bat" todir="built/Server"/>
-		
-		<!-- Create the zip distribution -->
-		<mkdir dir="built/zip"/>
-		<zip destfile="built/zip/LWJake2-Server.zip">
-			<zipfileset dir="built/Server" prefix="LWJake2"/>
-		</zip>
-	</target>
-
 	<!-- Build the source distribution -->
 	<target name="srcdist" depends="clean">
 		<mkdir dir="built/srcdist"/>
