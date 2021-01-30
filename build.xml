@@ -50,7 +50,7 @@
 		<copy todir="built/Linux/licenses">
 			<fileset dir="licenses"/>
 		</copy>
-		<copy file="README.md" todir="built/Linux"/>
+		<copy file="README" todir="built/Linux"/>
 		<copy file="readme.id" todir="built/Linux"/>
 
 		<!-- Copy GNU/Linux executable file -->
@@ -87,7 +87,7 @@
 		<copy todir="built/OSX/licenses">
 			<fileset dir="licenses"/>
 		</copy>
-		<copy file="README.md" todir="built/OSX"/>
+		<copy file="README" todir="built/OSX"/>
 		<copy file="readme.id" todir="built/OSX"/>
 
 		<!-- Copy OSX executable file -->
@@ -122,7 +122,7 @@
 		<copy todir="built/Windows/licenses">
 			<fileset dir="licenses"/>
 		</copy>
-		<copy file="README.md" todir="built/Windows"/>
+		<copy file="README" todir="built/Windows"/>
 		<copy file="readme.id" todir="built/Windows"/>
 
 		<!-- Copy Windows executable file -->
@@ -150,7 +150,7 @@
 		<copy todir="built/Server/licenses">
 			<fileset dir="licenses"/>
 		</copy>
-		<copy file="README.md" todir="built/Server"/>
+		<copy file="README" todir="built/Server"/>
 		<copy file="readme.id" todir="built/Server"/>
 		
 		<!-- Copy executable files -->
