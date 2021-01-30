@@ -139,9 +139,9 @@ public final class LWJGLSoundImpl implements Sound {
 			deviceName = "DirectSound3D";
 		}
 		
-		String defaultSpecifier = ALC10.alcGetString(AL.getDevice(), ALC10.ALC_DEFAULT_DEVICE_SPECIFIER);
+		// String defaultSpecifier = ALC10.alcGetString(AL.getDevice(), ALC10.ALC_DEFAULT_DEVICE_SPECIFIER);
 
-		Com.Printf(os + " using " + ((deviceName == null) ? defaultSpecifier : deviceName) + '\n');
+		// Com.Printf(os + " using " + ((deviceName == null) ? defaultSpecifier : deviceName) + '\n');
 
 		// Check for an error.
 		if (ALC10.alcGetError(AL.getDevice()) != ALC10.ALC_NO_ERROR) 
