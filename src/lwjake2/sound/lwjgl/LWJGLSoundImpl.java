@@ -44,7 +44,6 @@ import java.nio.ShortBuffer;
 
 import com.flibitijibibo.flibitEFX.EFXFilterLowPass;
 import org.lwjgl.LWJGLException;
-import org.lwjgl.openal;
 import org.lwjgl.openal.AL;
 import org.lwjgl.openal.AL10;
 import org.lwjgl.openal.ALC10;
