@@ -42,12 +42,14 @@
 	<target name="linux" depends="compile">
 		<!-- Copy LWJake2 jar -->
 		<copy file="built/jar/lwjake2.jar" todir="built/Linux"/>
+	</target>
 
 	<!-- Build the server version of LWJake2 -->
 	<target name="server" depends="compile">
 		<!--Copy LWJake2 jar -->
 		<copy file="built/jar/lwjake2.jar" todir="built/Server"/>
-		
+	</target>
+
 	<!-- Build the source distribution -->
 	<target name="srcdist" depends="clean">
 		<mkdir dir="built/srcdist"/>
